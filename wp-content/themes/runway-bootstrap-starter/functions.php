@@ -77,7 +77,7 @@ function rf_theme_setup() {
 	*/
 	register_nav_menus( array(
 		'primary'  => __( 'Main Menu - Left', 'framework' ),
-		'primary-right'  => __( 'Main Menu - Right', 'framework' ),
+		'footer-menu'  => __( 'Footer Menu', 'framework' ),
 	) );
 
 }

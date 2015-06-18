@@ -24,26 +24,9 @@
     <!-- Navigation Top
     ================================================== -->
 	<div class="navbar-wrapper">
-		<header class="navbar navbar-default navbar-fixed-top" id="top" role="navigation">
+		<header class="navbar navbar-default" id="top" role="navigation">
           <div class="container-fluid">
             <div class="navbar-header">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="navbar-brand">
-					<?php 
-					$logo_image = get_options_data('options-page', 'logo', '');
-					$has_logo = false;
-					if (!empty($logo_image)) {
-						echo '<img src="'.$logo_image.'" alt="'.esc_attr(get_bloginfo('name', 'display')).'">';
-						$has_logo = true;
-					}
-					$brand_title = get_options_data('options-page', 'brand-title', '');
-					if (!empty($brand_title)) {
-						if ($has_logo) {
-							echo ' &nbsp;';
-						}
-						echo $brand_title;
-					}
-					?>
-				</a>
 				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
 					<span class="sr-only"><?php _e('Toggle navigation', 'framework' ); ?></span>
 					<span class="icon-bar"></span>
@@ -63,22 +46,37 @@
 						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
 						'walker'            => new wp_bootstrap_navwalker()
 					));
-					// Main navbar (right)
-					wp_nav_menu( array(
-						'menu'              => 'primary-right',
-						'theme_location'    => 'primary-right',
-						'container'         => false,
-						'menu_class'        => 'nav navbar-nav navbar-right',
-						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-						'walker'            => new wp_bootstrap_navwalker()
-					));
 				} else {
 					echo 'Please make sure the Bootstrap Navigation extension is active. Go to "Runway > Extensions" to activate.';
 				}
 			?>
 			</nav>
           </div>
-        </header>        
+          
+          <div class="header_logo">
+	    	<div class="container">
+		    	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="navbar-brand">
+					<?php 
+					$logo_image = get_options_data('options-page', 'logo', '');
+					$has_logo = false;
+					if (!empty($logo_image)) {
+						echo '<img src="'.$logo_image.'" alt="'.esc_attr(get_bloginfo('name', 'display')).'">';
+						$has_logo = true;
+					}
+					$brand_title = get_options_data('options-page', 'brand-title', '');
+					if (!empty($brand_title)) {
+						if ($has_logo) {
+							echo ' &nbsp;';
+						}
+						echo $brand_title;
+					}
+					?>
+				</a>
+			</div>
+	    </div>
+          
+        </header>
+                
     </div>
 
 		
@@ -86,13 +84,16 @@
 	================================================== -->
 	<?php 
 
-	// Get the custom header content
-	if ( function_exists( 'rf_bootstrap_header' ) ) {
-		rf_bootstrap_header();
-	} else { ?>
-		<section id="header"></section>
-	<?php } ?>
-
+	if(is_front_page()) :
+		if ( function_exists( 'easingslider' ) ) { easingslider( 44 ); } ?>
+		
+		<div class="wings">
+			<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri();?>/assets/images/wings.png">
+		</div>
+		
+	<?php endif ?>
+	
+	
 	<!-- Main content
 	================================================== -->
 	<div id="middle" <?php if (!is_page_template('templates/page-full-width-flush.php')) : echo 'class="container-fluid"'; endif; ?>>

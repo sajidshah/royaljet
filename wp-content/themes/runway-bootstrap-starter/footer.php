@@ -19,26 +19,32 @@
 		<footer id="footer">
 			<div class="container-fluid">
 			  <div class="row">
-				<div class="col-lg-12">
-					<ul class="list-inline">
-						<li><a href="#">Getting Started</a></li>
-						<li>&middot;</li>
-						<li><a href="#">Templates</a></li>
-						<li>&middot;</li>
-						<li><a href="#">Elements</a></li>
-						<li>&middot;</li>
-						<li><a href="#">Customize</a></li>
-						<li>&middot;</li>
-						<li><a href="#">Download</a></li>
-					</ul>
-					<p>
-						<small>
-							A starter theme built with <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a> and enhanced with the <a href="http://runwaywp.com" rel="nofollow">Runway WordPress framework</a>.<br>
-							Copyright &copy; 2014. Created by the team at <a href="http://para.llel.us" rel="nofollow">Parallelus</a>.
-						</small>
-					</p>
+				<div class="col-sm-3 col-sm-offset-1">
+					<h3>Footer Menu</h3>
+					<?php 
+						// Main navbar (right)
+						wp_nav_menu( array(
+							'menu'              => 'footer-menu',
+							'theme_location'    => 'footer-menu',
+							'container'         => false,
+							'menu_class'        => '',
+							
+						));
+					?>
+				</div>
+				<div class="col-sm-4">
+					<h3>Disclaimer</h3>
+					Royal Jets do not own or operate any aircraft. Royal Jets acts as agent for the Royalty Members
+				</div>
+				<div class="col-sm-3">
+					<h3>Get in Touch</h3>
+					1100 New Hwy<br>
+					Farmingdale, New York 11735<br>
+					Freephone:+1 877 626 6952 <br>FAX:+ +1 877 626 6952<br>
+					E-mail: Info@royaljets.com
 				</div>
 			  </div>
+			  <div class="footer_copyright text-center">RoyalJets &copy; <a href="<?php echo site_url('privacy-policy');?>">Privacy Policy</a></div>
 			</div>
 		</footer>
 
