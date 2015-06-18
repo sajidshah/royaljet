@@ -45,6 +45,8 @@ img[class*="wp-image-"] {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+ul{list-style:none;}
 .wp-caption {
 	border: 1px solid #ccc;
 	margin-bottom: 10px;
@@ -132,24 +134,23 @@ article.post.sticky .page-header h1 a {
 	margin-top: 0;
 }
 .bypostauthor {}
+.social-list {float:right; margin-top:20px;}
+.social-list li{display:inline-block; font-size: 17px; text-align:center; margin-right: 5px;}
+.social-list li a{padding: 10px; border: 1px solid #bfc2c2; border-radius: 50%;  color: #bfc2c2; height: 40px; width: 40px;}
+.social-list li a:hover{color:#eee; text-decoration:none;}
+
+.inline-list {float:right; margin: 35px 0;}
+.inline-list li{display: inline-block;}
+.inline-list li a{padding: 0 8px; color:#fff; font-size: 16px;}
 
 .header_logo{background:#000; padding: 5px 0;}
-
-#footer {
-	
-	background: #2b292a;
-	color:#bfc2c2;
-}
+#footer {background: #2b292a; color:#bfc2c2; }
 #footer a{color: #bfc2c2}
 #footer ul{ list-style:none; margin-left: 0; padding-left: 0; text-align:center; text-transform:capitalize;}
 #footer h3{text-align:center;}
 #footer .footer_copyright{margin-top:20px; padding-top: 15px; border-top: 1px solid #4f4d4e; }
 
-
-.clear {
-	clear: both;
-}
-
+.clear {clear: both;}
 
 /* Here some needed widget styles
  * Most widgets are adapted in the file bootstrap-wp.js - and REALLY easy to modify! ;) */

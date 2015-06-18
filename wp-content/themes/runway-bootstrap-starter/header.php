@@ -83,6 +83,34 @@
 					}
 					?>
 				</a>
+				
+				<ul class="inline-list">
+					<?php if ( !is_user_logged_in() ) : ?>
+						<li>		
+							<a href="<?php echo site_url('login-now'); ?>">login</a>		
+						</li>
+						<li>
+							<a href="#">|</a>
+						</li>
+						<li>
+							<a href="<?php echo site_url('signup-now'); ?>">Register an account</a>
+						</li>
+					<?php else: 
+						
+						$user = new WP_User( $user_ID );
+						$initial = (in_array('member_zero', $user->roles)) ? true : fale;
+						
+						if($initial):
+					?>
+							<li><a href="#">Upgrade Membership</a></li>
+					<?php else: ?>
+							<li><a href="#">Empty Legs</a></li>
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Account</a></li>
+						<?php endif; ?>	
+					<?php endif; ?>
+				</ul>
+				
 			</div>
 	    </div>
           
