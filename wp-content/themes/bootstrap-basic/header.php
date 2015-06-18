@@ -11,10 +11,6 @@
 <!--[if IE 8]>     <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/css/grid.css'?>">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/css/jquery.fancybox.css'?>">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/css/camera.css'?>">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/css/contact-form.css'?>">
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title><?php wp_title('|', true, 'right'); ?></title>
@@ -97,26 +93,15 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-<link rel='stylesheet' id='bxslider-css-css'  href='https://www.royaljets.com/template/wp-content/plugins/kiwi-logo-carousel/third-party/jquery.bxslider/jquery.bxslider.css?ver=4.2.2' type='text/css' media='' />
-<link rel='stylesheet' id='kiwi-logo-carousel-styles-css'  href='https://www.royaljets.com/template/wp-content/plugins/kiwi-logo-carousel/custom-styles.css?ver=4.2.2' type='text/css' media='' />
-<link rel='stylesheet' id='stripe-checkout-button-css'  href='https://checkout.stripe.com/v3/checkout/button.css' type='text/css' media='all' />
-<link rel='stylesheet' id='pikaday-css'  href='https://www.royaljets.com/template/wp-content/plugins/stripe-checkout-pro/public/css/pikaday.css?ver=2.2.5' type='text/css' media='all' />
-<link rel='stylesheet' id='stripe-checkout-pro-public-css'  href='https://www.royaljets.com/template/wp-content/plugins/stripe-checkout-pro/public/css/public-pro.css?ver=2.2.5' type='text/css' media='all' />
-<link rel='stylesheet' id='bbp-default-css'  href='https://www.royaljets.com/template/wp-content/plugins/bbpress/templates/default/css/bbpress.css?ver=2.5.7-5693' type='text/css' media='screen' />
-<link rel='stylesheet' id='easingslider-css'  href='https://www.royaljets.com/template/wp-content/plugins/easing-slider/css/easingslider.min.css?ver=2.2.1.1' type='text/css' media='all' />
 <link rel='stylesheet' id='font-awesome-css'  href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' type='text/css' media='screen' />
-<link rel='stylesheet' id='wpuf-css'  href='https://www.royaljets.com/template/wp-content/plugins/wp-user-frontend/css/wpuf.css?ver=4.2.2' type='text/css' media='all' />
 <link rel='stylesheet' id='twentyfourteen-lato-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic' type='text/css' media='all' />
-<link rel='stylesheet' id='genericons-css'  href='https://www.royaljets.com/template/wp-content/themes/royaljets-new-theme/genericons/genericons.css?ver=3.0.3' type='text/css' media='all' />
+
 <link rel='stylesheet' id='twentyfourteen-style-css'  href='https://www.royaljets.com/template/wp-content/themes/royaljets-new-theme/style.css?ver=4.2.2' type='text/css' media='all' />
 <!--[if lt IE 9]>
 <link rel='stylesheet' id='twentyfourteen-ie-css'  href='https://www.royaljets.com/template/wp-content/themes/royaljets-new-theme/css/ie.css?ver=20131205' type='text/css' media='all' />
 <![endif]-->
-<link rel='stylesheet' id='mycred-widget-css'  href='https://www.royaljets.com/template/wp-content/plugins/mycred/assets/css/widget.css?ver=1.6.3.1' type='text/css' media='all' />
-<link rel='stylesheet' id='wp-members-css'  href='https://www.royaljets.com/template/wp-content/plugins/wp-members/css/generic-no-float.css?ver=2.9.9.1' type='text/css' media='all' />
 <script type='text/javascript' src='https://www.royaljets.com/template/wp-includes/js/jquery/jquery.js?ver=1.11.2'></script>
 <script type='text/javascript' src='https://www.royaljets.com/template/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/easing-slider/js/jquery.easingslider.min.js?ver=2.2.1.1'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
 var wpuf = {"ajaxurl":"https:\/\/www.royaljets.com\/template\/wp-admin\/admin-ajax.php","postingMsg":"","confirmMsg":"Are you sure?","nonce":"d1e0f2f1f6","featEnabled":"","plupload":{"runtimes":"html5,silverlight,flash,html4","browse_button":"wpuf-ft-upload-pickfiles","container":"wpuf-ft-upload-container","file_data_name":"wpuf_featured_img","max_file_size":"33554432b","url":"https:\/\/www.royaljets.com\/template\/wp-admin\/admin-ajax.php?action=wpuf_featured_img&nonce=e7fc785ccc","flash_swf_url":"https:\/\/www.royaljets.com\/template\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"https:\/\/www.royaljets.com\/template\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Allowed Files","extensions":"*"}],"multipart":true,"urlstream_upload":true}};
@@ -308,16 +293,31 @@ if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && lo
 							<img src="https://www.royaljets.com/template/wp-content/themes/royaljets-new-theme/images/logo.png" alt="royaljets" />
 						</a>
 					</div>
-					<ul class="inline-list">		
-						<li>		
-							<a href="https://www.royaljets.com/template/login/">login</a>		
-						</li>
-						<li>
-							<a href="#">|</a>
-						</li>
-						<li>
-							<a href="https://www.royaljets.com/template/register/">Register an account</a>
-						</li>		
+					<ul class="inline-list">
+						<?php if ( !is_user_logged_in() ) : ?>
+							<li>		
+								<a href="<?php echo site_url('login-now'); ?>">login</a>		
+							</li>
+							<li>
+								<a href="#">|</a>
+							</li>
+							<li>
+								<a href="<?php echo site_url('signup-now'); ?>">Register an account</a>
+							</li>
+						<?php else: 
+							
+							$user = new WP_User( $user_ID );
+							$initial = (in_array('member_zero', $user->roles)) ? true : fale;
+							
+							if($initial):
+						?>
+								<li><a href="#">Upgrade Membership</a></li>
+						<?php else: ?>
+								<li><a href="#">Empty Legs</a></li>
+								<li><a href="#">Profile</a></li>
+								<li><a href="#">Account</a></li>
+							<?php endif; ?>	
+						<?php endif; ?>
 					</ul>
 				</div>		
 			</div>

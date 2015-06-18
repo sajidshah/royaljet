@@ -1,0 +1,69 @@
+// ============================================================================
+// 
+// Extends Bootstrap classes to native WordPress elements
+// 
+// ============================================================================
+
+// Widgets ====================================================================
+
+.widget-title:extend(h4) {}
+
+.widget > ul:extend(.list-unstyled) {}
+
+
+// Content ====================================================================
+
+.masthead + #middle article:first-child > .entry-content .featurette:first-child:extend(.masthead + #middle > .featurette:first-child) {} // closes gap for first featurette and masthead
+#middle article > .entry-content .featurette:last-child:extend(#middle > .featurette:last-child) {} // closes gap for last featurette and footer
+
+a.more-link {
+	display: inline-block;
+	margin: (@line-height-computed / 2) 0;
+}
+
+
+// Forms ====================================================================
+
+.ninja-forms-field-description {
+
+	&:extend(.help-block);
+}
+
+.ninja-forms-required-items {
+	
+	&:extend(.help-block);
+	margin: 1em 0;
+	color: @brand-info;
+}
+
+.ninja-forms-field-error {
+
+	&:extend(.help-block);
+	color: @brand-danger;
+}
+
+.ninja-forms-error {
+
+	&:extend(.has-error all);
+	& input[type='text'], 
+	& input[type='email'], 
+	& input[type='password'], 
+	& textarea,
+	& select {
+		&:extend(.has-error .form-control);
+	}
+}
+
+.ninja-forms-response-msg {
+
+	&:extend(.help-block);
+	color: @brand-warning;
+
+	&.ninja-forms-error-msg {
+		color: @brand-danger;
+	}
+
+	&.ninja-forms-success-msg {
+		color: @brand-success;
+	}
+}

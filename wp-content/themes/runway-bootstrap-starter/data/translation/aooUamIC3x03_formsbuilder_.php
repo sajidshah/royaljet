@@ -1,0 +1,40 @@
+<?php 
+// Translation strings
+__('Theme Options', 'framework');
+__('Defaults', 'framework');
+__('Design', 'framework');
+__('Logo', 'framework');
+__('Site Title', 'framework');
+__('Page Headers', 'framework');
+__('Use Page Headers', 'framework');
+__('Login Screen', 'framework');
+__('Background Color', 'framework');
+__('Background Image', 'framework');
+__('Fonts', 'framework');
+__('Font Styles', 'framework');
+__('Heading Fonts', 'framework');
+__('Home Page Header', 'framework');
+__('Style and Content', 'framework');
+__('Style', 'framework');
+__('Background', 'framework');
+__('Size', 'framework');
+__('Content', 'framework');
+__('Header Content', 'framework');
+__('Advanced', 'framework');
+__('Custom Class Name', 'framework');
+__('Custom CSS', 'framework');
+__('Auto Paragraphs', 'framework');
+__('Optional logo graphic. Recommended height of 50px or smaller. Use 100px for high resolution screens.', 'framework');
+__('An optional text title shown after the logo.', 'framework');
+__('Apply custom page headers to the selected post types.', 'framework');
+__('Select a logo for the WordPress login screen <code>/wp-admin</code>. <br>Recommended size: 400px &times; 400px. Displays at maximum height of 200px.', 'framework');
+__('Choose the background color of the WordPress login screen.', 'framework');
+__('Choose the background image for the WordPress login screen.', 'framework');
+__('Optional logo graphic. Recommended height of 80px or smaller. Use 160px for high resolution screens.', 'framework');
+__('Choose a style for the background color.', 'framework');
+__('Adjusts font sizes, padding and more. Default: Large', 'framework');
+__('Add your custom home page header content.', 'framework');
+__('Add a custom CSS class to the header container. This is an optional feature for advanced users..', 'framework');
+__('Add custom CSS rules to be applied to the page whenever the home page header is displayed.', 'framework');
+__('Enable auto-paragraphs for header content.', 'framework');
+?>

@@ -95,28 +95,9 @@
 	<span class="scroll-back-to-top-inner">
 					<i class="fa fa-2x fa-arrow-circle-up"></i>
 			</span>
-</div><script type='text/javascript' src='https://checkout.stripe.com/checkout.js'></script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/stripe-checkout-pro/public/js/parsley.min.js?ver=2.2.5'></script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/stripe-checkout-pro/public/js/moment.min.js?ver=2.2.5'></script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/stripe-checkout-pro/public/js/pikaday.js?ver=2.2.5'></script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/stripe-checkout-pro/public/js/pikaday.jquery.js?ver=2.2.5'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
-var sc_coup = {"ajaxurl":"https:\/\/www.royaljets.com\/template\/wp-admin\/admin-ajax.php"};
-var sc_script = {"script_debug":""};
-/* ]]> */
-</script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/stripe-checkout-pro/public/js/public.js?ver=2.2.5'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var sc_sub = {"ajaxurl":"https:\/\/www.royaljets.com\/template\/wp-admin\/admin-ajax.php"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/stripe-subscriptions/js/public.js?ver=1.1.7'></script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/bbpress/templates/default/js/editor.js?ver=2.5.7-5693'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var scrollBackToTop = {"scrollDuration":"500","fadeDuration":"0.5"};
+	var scrollBackToTop = {"scrollDuration":"500","fadeDuration":"0.5"};
 /* ]]> */
 </script>
 <script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/scroll-back-to-top/assets/js/scroll-back-to-top.js'></script>
@@ -124,7 +105,6 @@ var scrollBackToTop = {"scrollDuration":"500","fadeDuration":"0.5"};
 <script type='text/javascript' src='https://www.royaljets.com/template/wp-includes/js/masonry.min.js?ver=3.1.2'></script>
 <script type='text/javascript' src='https://www.royaljets.com/template/wp-includes/js/jquery/jquery.masonry.min.js?ver=3.1.2'></script>
 <script type='text/javascript' src='https://www.royaljets.com/template/wp-content/themes/royaljets-new-theme/js/functions.js?ver=20140616'></script>
-<script type='text/javascript' src='https://www.royaljets.com/template/wp-content/plugins/kiwi-logo-carousel/third-party/jquery.bxslider/jquery.bxslider.js?ver=4.2.2'></script>
 
 <script src="https://www.royaljets.com/template/wp-content/themes/royaljets-new-theme/js/script.js"></script>
 

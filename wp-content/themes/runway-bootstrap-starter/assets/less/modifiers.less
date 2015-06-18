@@ -1,0 +1,884 @@
+/**
+ * Modifiers apply custom styles to default Bootstrap features and classes. In
+ * some cases they may also include helper classes where related to an existing
+ * class already in Bootstrap.
+ */
+
+// Google Font (use with HTML files, not needed for WordPress version)
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic);
+
+// in page navbar
+@container-navbar-height:                    50px;
+@container-navbar-padding-vertical:          ((@container-navbar-height - @line-height-computed) / 2);
+
+// Max width for fluid same as normal container
+.container-fluid { max-width: @container-lg; }
+
+
+// Navbar =====================================================================
+
+// Default navbar styles
+.navbar {
+  text-shadow: none;
+
+  // Bigger brand text
+  &-brand {
+    font-size: ceil(@navbar-height * .375);
+    font-weight: 300;
+    padding: @navbar-padding-horizontal;
+    line-height: @navbar-height - (@navbar-padding-horizontal * 2);
+
+    // Add logo images to brand
+    img {
+      max-height: @navbar-height - (@navbar-padding-horizontal * 2);
+      width: auto !important;
+      height: auto !important;
+      vertical-align: top;
+    }
+  }
+
+  // Responsive menu adjustments
+  .navbar-collapse {
+    border-top-color: @dropdown-divider-bg;
+    .box-shadow(none);
+  }
+
+  // Better vertical positioning on form and input elements
+  &-form {
+    margin-top: ((@navbar-height - @input-height-base) / 2);
+    margin-bottom: ((@navbar-height - @input-height-base) / 2);
+
+    .form-control {
+      border-color: @navbar-default-border;
+      .box-shadow(none);
+
+      &.input-sm {
+        margin-top: ((@input-height-base - @input-height-small) / 2);
+        margin-bottom: ((@input-height-base - @input-height-small) / 2);
+      }
+    }
+  }
+
+  &-btn.btn-xs {
+    margin-top: ((@navbar-height - 25) / 2);
+    margin-bottom: ((@navbar-height - 25) / 2);
+  }
+
+  .dropdown {
+
+    &-menu {
+      border: none;
+
+      // Adjust sub-menu links
+      > li > a,
+      > li > a:focus {
+        background-color: transparent;
+        font-size: ceil((@font-size-base * .933)); // ~14px;
+      }
+    }
+  }
+
+  // Default drop menu styles
+  &-default {
+
+    .dropdown-menu {
+      background-color: @navbar-default-bg;
+
+      > li > a,
+      > li > a:focus {
+        color: @navbar-default-link-color;
+      }
+
+      > li > a:hover,
+      > .active > a,
+      > .active > a:hover {
+        color: @navbar-default-link-hover-color;
+        background-color: @navbar-default-link-hover-bg;
+      }
+    }
+  }
+
+  // Inverse menu style 
+  &-inverse {
+
+    .dropdown {
+
+      // Sub-menu styles
+      &-menu {
+        background-color: @navbar-inverse-bg;
+
+        > li > a,
+        > li > a:focus {
+          color: @navbar-inverse-link-color;
+        }
+
+        > li > a:hover,
+        > .active > a,
+        > .active > a:hover {
+          color: @navbar-inverse-link-hover-color;
+          background-color: @navbar-inverse-link-hover-bg;
+        }
+      }
+
+      // Menu headings style
+      &-header {
+        color: lighten(@navbar-inverse-bg, 50%);
+      }
+    }
+
+    // Form elements in menu
+    .navbar-form .form-control {
+      border-color: @navbar-inverse-border;
+    }
+  }
+}
+
+// In Page Navbars ============================================================
+
+div:not([class*='navbar-wrapper']) {
+
+  > .navbar {
+    min-height: @container-navbar-height;
+    border-width: 1px;
+
+    .navbar {
+
+      &-brand {
+        font-size: @font-size-large;
+        font-weight: normal;
+        padding: @container-navbar-padding-vertical @navbar-padding-horizontal;
+        line-height: @container-navbar-height - (@container-navbar-padding-vertical * 2);
+        height: @container-navbar-height;
+
+        img {
+          max-height: @container-navbar-height - (@container-navbar-padding-vertical * 2);
+        }
+      }
+
+      &-nav > li > a {
+        padding-top: @container-navbar-padding-vertical;
+        padding-bottom: @container-navbar-padding-vertical;
+      }
+
+      &-form {
+        margin-top: ((@container-navbar-height - @input-height-base) / 2);
+        margin-bottom: ((@container-navbar-height - @input-height-base) / 2);
+      }
+      
+      &-btn {
+        margin-top: ((@container-navbar-height - @input-height-base) / 2);
+        margin-bottom: ((@container-navbar-height - @input-height-base) / 2);
+
+        &.btn-sm {
+          margin-top: ((@container-navbar-height - @input-height-small) / 2);
+          margin-bottom: ((@container-navbar-height - @input-height-small) / 2);
+        }
+        &.btn-xs {
+          margin-top: ((@container-navbar-height - 25) / 2);
+          margin-bottom: ((@container-navbar-height - 25) / 2);
+        }
+      }
+
+      &-text {
+        margin-top: ((@container-navbar-height - @line-height-computed) / 2);
+        margin-bottom: ((@container-navbar-height - @line-height-computed) / 2);
+      }
+
+      &-toggle {
+        margin-top: ((@container-navbar-height - 34) / 2);    // Mixin: .navbar-vertical-align(@element-height) | Uses: ((@navbar-height - @element-height) / 2)
+        margin-bottom: ((@container-navbar-height - 34) / 2);
+      }
+    }
+  }
+}
+
+
+// Buttons ====================================================================
+
+.btn {
+  text-shadow: none;
+}
+
+.btn-lg {
+    #gradient > .vertical(@start-color: softlight(@btn-default-bg, #bbb); @end-color: @btn-default-border);
+
+  &:hover {
+    #gradient > .vertical(@start-color: softlight(@btn-default-border, #bbb); @end-color: darken(@btn-default-border, 5%));
+  }
+
+  &.btn-primary {
+    #gradient > .vertical(@start-color: softlight(@btn-primary-bg, #bbb); @end-color: @btn-primary-border);
+
+    &:hover {
+      #gradient > .vertical(@start-color: softlight(@btn-primary-border, #bbb); @end-color: darken(@btn-primary-border, 5%));
+    }
+  }
+
+  &.btn-success {
+    #gradient > .vertical(@start-color: softlight(@btn-success-bg, #bbb); @end-color: @btn-success-border);
+
+    &:hover {
+      #gradient > .vertical(@start-color: softlight(@btn-success-border, #bbb); @end-color: darken(@btn-success-border, 5%));
+    }
+  }
+
+  &.btn-info {
+    #gradient > .vertical(@start-color: softlight(@btn-info-bg, #bbb); @end-color: @btn-info-border);
+
+    &:hover {
+      #gradient > .vertical(@start-color: softlight(@btn-info-border, #bbb); @end-color: darken(@btn-info-border, 5%));
+    }
+  }
+
+  &.btn-warning {
+    #gradient > .vertical(@start-color: softlight(@btn-warning-bg, #bbb); @end-color: @btn-warning-border);
+
+    &:hover {
+      #gradient > .vertical(@start-color: softlight(@btn-warning-border, #bbb); @end-color: darken(@btn-warning-border, 5%));
+    }
+  }
+
+  &.btn-danger {
+    #gradient > .vertical(@start-color: softlight(@btn-danger-bg, #bbb); @end-color: @btn-danger-border);
+
+    &:hover {
+      #gradient > .vertical(@start-color: softlight(@btn-danger-border, #bbb); @end-color: darken(@btn-danger-border, 5%));
+    }
+  }
+}
+
+.btn-group {
+
+  > .btn {
+
+    + .dropdown-toggle {
+      padding-left: (@padding-base-horizontal * .9);
+      padding-right: (@padding-base-horizontal * .9);
+
+      &.btn-xs {
+        padding-left: (@padding-xs-horizontal * .9);
+        padding-right: (@padding-xs-horizontal * .9);
+      }
+
+      &.btn-sm {
+        padding-left: (@padding-small-horizontal * .9);
+        padding-right: (@padding-small-horizontal * .9);
+      }
+
+      &.btn-lg {
+        padding-left: (@padding-large-horizontal * .75);
+        padding-right: (@padding-large-horizontal * .75);
+      }
+    }
+  }
+
+  .dropdown-menu {
+    border-top-width: 0;
+  }
+
+  &.dropup .dropdown-menu {
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    margin-bottom: 0;
+  }
+
+  .dropdown-toggle {
+
+    &.btn-default ~ .dropdown-menu {
+      background-color: @btn-default-bg;
+      border-color: @btn-default-border;
+
+      > li > a {
+        color: @btn-default-color;
+      }
+
+      > li > a:hover {
+        background-color: darken(@btn-default-bg, 8%);
+      }
+    }
+
+    &.btn-primary ~ .dropdown-menu {
+      background-color: @btn-primary-bg;
+      border-color: @btn-primary-border;
+
+      > li > a {
+        color: @btn-primary-color;
+      }
+
+      > li > a:hover {
+        background-color: darken(@btn-primary-bg, 8%);
+      }
+    }
+
+    &.btn-success ~ .dropdown-menu {
+      background-color: @btn-success-bg;
+      border-color: @btn-success-border;
+
+      > li > a {
+        color: @btn-success-color;
+      }
+
+      > li > a:hover {
+        background-color: darken(@btn-success-bg, 8%);
+      }
+    }
+
+    &.btn-info ~ .dropdown-menu {
+      background-color: @btn-info-bg;
+      border-color: @btn-info-border;
+
+      > li > a {
+        color: @btn-info-color;
+      }
+
+      > li > a:hover {
+        background-color: darken(@btn-info-bg, 8%);
+      }
+    }
+
+    &.btn-warning ~ .dropdown-menu {
+      background-color: @btn-warning-bg;
+      border-color: @btn-warning-border;
+
+      > li > a {
+        color: @btn-warning-color;
+      }
+
+      > li > a:hover {
+        background-color: darken(@btn-warning-bg, 8%);
+      }
+    }
+
+    &.btn-danger ~ .dropdown-menu {
+      background-color: @btn-danger-bg;
+      border-color: @btn-danger-border;
+
+      > li > a {
+        color: @btn-danger-color;
+      }
+
+      > li > a:hover {
+        background-color: darken(@btn-danger-bg, 8%);
+      }
+    }
+  }
+}
+
+// Typography =================================================================
+
+p {
+  margin: 0 0 @line-height-computed*.8
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+  margin-top: @line-height-computed*.8;
+}
+
+.lead {
+  color: @gray-light;
+}
+
+cite {
+  font-style: italic;
+}
+
+blockquote {
+  border-left-width: 1px;
+  color: @gray;
+
+  &.pull-right {
+    border-right-width: 1px;
+  }
+
+  small {
+    font-size: @font-size-small;
+    font-weight: 300;
+  }
+}
+
+code, pre {
+  text-shadow: none;
+}
+
+pre {
+  text-align: left;
+}
+
+.page-header {
+
+  h1 {
+    font-size: 4em;
+
+    // Blog post list titles
+    article.post & a {
+      font-size: @font-size-h2;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Dividers ===================================================================
+
+hr {
+  margin-top: @jumbotron-padding;
+  margin-bottom: @jumbotron-padding;
+
+  @media screen and (min-width: @screen-sm-min) {
+    margin-top: (@jumbotron-padding * 1.6);
+    margin-bottom: (@jumbotron-padding * 1.6);
+  }
+}
+
+// Tables =====================================================================
+
+table {
+  font-size: @font-size-small;
+}
+
+// Forms ======================================================================
+
+label,
+.control-label,
+.help-block,
+.checkbox,
+.radio {
+  font-size: @font-size-small;
+  font-weight: normal;
+}
+
+input[type='text'], 
+input[type='email'], 
+input[type='password'], 
+textarea,
+select {
+
+  // gives default .form-control styles to native inputs without extra class 
+  &:extend(.form-control);
+
+  // gives default large input styles to native inputs without .form-control class 
+  &.input-lg:extend(.input-lg) {}
+
+  // gives default small input styles to native inputs without .form-control class 
+  &.input-sm:extend(.input-sm) {}
+}
+
+button, 
+input[type='button'],
+input[type='submit'] {
+
+  // gives default .btn styles to native buttons
+  &:extend(.btn all);
+}
+
+input[type='submit']:extend(.btn-primary all) {
+  // gives default submit buttons primary color
+}
+
+.help-block {
+  color: @gray-light;
+}
+
+.form-control:focus,
+.has-warning .form-control:focus,
+.has-error .form-control:focus,
+.has-success .form-control:focus {
+  .box-shadow(none);
+}
+
+// Navs =======================================================================
+
+.nav {
+  .open > a,
+  .open > a:hover,
+  .open > a:focus {
+    border-color: transparent;
+  }
+
+  &-tabs {
+    > li > a {
+      background-color: @btn-default-bg;
+      color: @text-color;
+      margin-right: 3px;
+    }
+
+    .caret {
+      border-top-color: @text-color;
+      border-bottom-color: @text-color;
+    }
+  }
+
+  &-pills {
+    font-weight: 300;
+  }
+
+  &-justified {
+    
+    // Justified 'default' navigation, not tabs or pills style
+    &:not([class*='nav-pills']):not([class*='nav-tabs']) {
+      background: @nav-link-hover-bg;
+      border: 1px solid @nav-tabs-justified-link-border-color;
+      border-radius: @nav-pills-border-radius;
+
+      > li > a {
+        color: @text-color;
+
+        &:hover {
+          background: darken(@nav-link-hover-bg, 5%);
+        }
+      }
+    }
+  }
+}
+
+.breadcrumb {
+  font-size: @font-size-small;
+}
+
+.pagination {
+  border-radius: @border-radius-base;
+
+  &-lg > li > a {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  &-sm > li > a {
+    padding: 0 5px;
+  }
+}
+
+.pager {
+  font-size: @font-size-small;
+}
+
+.list-group {
+  font-weight: 300;
+}
+
+// Indicators =================================================================
+
+.close {
+  opacity: 0.4;
+  text-decoration: none;
+  text-shadow: none;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.alert {
+  font-weight: 300;
+  border-width: 2px;
+  border-radius: 0;
+
+  .alert-link {
+    font-weight: normal;
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  a:extend(.alert .alert-link all) {}
+}
+
+.label {
+  padding-left: 1em;
+  padding-right: 1em;
+
+  &-default {
+    background-color: @btn-default-bg;
+    color: @btn-default-color;
+  }
+}
+
+
+// Progress bars ==============================================================
+
+.progress {
+  .box-shadow(none);
+}
+
+// Containers =================================================================
+
+.dropdown {
+
+  &-menu {
+    padding: 0;
+    margin-top: 0;
+    font-size: @font-size-small;
+
+    > li > a {
+      padding: @nav-link-padding;
+    }
+  }
+
+  &-header {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.popover {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.panel {
+  &-heading,
+  &-footer {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &-default {
+    .close {
+      color: @text-color;
+    }
+  }
+}
+
+.modal {
+  &-content {
+    border-radius: 3px;
+
+    @media (min-width: @grid-float-breakpoint) {
+      .box-shadow( 0 2px 20px rgba(0, 0, 0, 0.4) );
+    }
+  }
+
+  .close {
+    color: @text-color;
+  }
+
+
+}
+
+// Carousel ===================================================================
+
+.carousel {
+  width: 100%;
+  height: 100%;
+
+  &-inner {
+    width: 100%;
+    height: 100%;
+
+    > .item {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-indicators li {
+    margin: 3px;
+
+    &.active {
+      margin: 2px;
+    }
+  }
+
+  &:hover {
+    .carousel-controls {
+      opacity: 1;
+    }
+  }
+
+  &-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: @carousel-control-font-size*2.5;
+    margin-top: @carousel-control-font-size*-1.25;
+    overflow: hidden;
+    opacity: 0;
+    .transition(opacity .25s linear .4s);
+
+    .container, .container-fluid {
+      position: relative;
+    }
+
+    // Control positioning in full width (requires parent element .carousel-contols)
+    .carousel-control {
+
+      &.left,
+      &.right {
+        top: @carousel-control-font-size*.25;
+        margin-top: 0;
+      }
+      &.left {
+        margin-left: @carousel-control-font-size*-2.5;
+      }
+      &.right {
+        margin-right: @carousel-control-font-size*-2.5;
+      }
+    }
+  }
+
+  &-control {
+
+    @media screen and (min-width: @screen-sm-min) {
+
+      // Scale up the controls a smidge
+      .glyphicon-chevron-left,
+      .glyphicon-chevron-right,
+      .icon-prev,
+      .icon-next {
+        width: @carousel-control-font-size;
+        height: @carousel-control-font-size;
+        margin-top: -@carousel-control-font-size/2;
+        font-size: @carousel-control-font-size;
+      }
+    }
+
+    &.left,
+    &.right {
+      display: inline-block;
+      width: @carousel-control-font-size*2;
+      height: @carousel-control-font-size*2;
+      // top: @carousel-control-font-size*.25;
+      box-shadow: @carousel-text-shadow;
+      border: 1px solid @carousel-control-color;
+      border-radius: @carousel-control-font-size*2;
+      .transition(opacity .1s linear 0s);
+      position: absolute;
+      top: 50%;
+      margin-top: -28px;
+    }
+    &.left {
+      margin-left: @carousel-control-font-size;
+    }
+    &.right {
+      margin-right: @carousel-control-font-size;
+    }
+
+    // Set gradients for backgrounds
+    &.left, 
+    &.right {
+      background-image: none;
+      background-repeat: no-repeat;
+
+      &:hover,
+      &:focus {
+        background-image: none;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &-caption {
+    left: auto;
+    right: auto;
+    width: 100%;
+    text-align: left;
+    text-shadow: none;
+    z-index: 0;
+
+    @media (min-width: 768px) {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+// Cover ======================================================================
+
+html.cover {
+  height: 100%;
+  margin-top: 0 !important; // Because of WP navbar
+}
+
+.cover {
+
+  body {
+    height: 100%;
+    vertical-align: top;
+  }
+
+  #header {
+    margin-top: 0;
+
+    &:not(.cover-with-page) {
+      margin-bottom: 0;
+    }
+  }
+    
+  #header, &-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%; /* For at least Firefox */
+    min-height: 100%;
+    background-color: @gray;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+  
+  &-container {
+    display: table-cell;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+
+    &.overlay {
+      background-color: rgba(0,0,0,.6);
+      .box-shadow(inset 0 0 100px rgba(0,0,0,.5));
+    }
+
+    /* Full screen carousel inside cover */
+    .carousel {
+      display: table;
+      position: static;
+      overflow: hidden;
+
+      &-inner {
+        display: table-row;
+        position: absolute;
+        top: 0;
+
+        > .item {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+
+        .container {
+          position: absolute;
+          width: 100%
+        }
+
+        .left {
+          margin-left: 0;
+          left: 40px;
+        }
+
+        .right {
+          margin-right: 0;
+          right: 40px;
+        }
+      }
+    }
+  }
+
+  &-inner {
+    text-shadow: @carousel-text-shadow; // 0 1px 2px rgba(0,0,0,.5);
+
+    .lead {
+      color: @carousel-caption-color;
+    }
+  }
+}

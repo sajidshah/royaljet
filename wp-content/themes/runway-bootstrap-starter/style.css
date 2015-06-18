@@ -1,0 +1,182 @@
+/*
+Theme Name: Bootstrap Starter
+Icon: custom-icon
+Theme URI: http://runwaywp.com
+Description: Bootstrap Starter for Runway is a clean and beautiful Bootstrap theme built on the Runway framework.
+Author: Parallelus
+Author URI: http://para.llel.us/
+Template: runway-framework
+Version: 1.0.1
+Tags: one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar,fixed-layout,fluid-layout,responsive-layout,buddypress,custom-background,custom-colors,custom-header,custom-menu,editor-style,featured-images,flexible-header,full-width-template,sticky-post,theme-options,threaded-comments,translation-ready
+License: GNU General Public License
+*/
+
+
+
+body {
+	word-wrap: break-word;
+}
+
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+.gallery-caption {}
+
+
+img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+}
+img[class*="wp-image-"] {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.wp-caption {
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	max-width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 0 10px;
+}
+.wp-caption.aligncenter {
+	margin-bottom: 10px;
+}
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+}
+.wp-caption .wp-caption-text {
+	text-align: center;
+	margin-top: 10px;
+}
+
+
+.gallery {
+	margin-bottom: 1.5em;
+}
+.gallery a img {
+	border: none;
+	height: auto;
+	max-width: 90%;
+}
+.gallery dd {
+	margin: 0;
+}
+
+
+
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; 
+}
+
+
+.main-header, .main-header .page-title {
+	margin-top: 0
+} 
+.main-content-inner {
+	padding-bottom: 1.5em;
+}
+.hentry {
+	margin: 0 0 1.5em;
+}
+article.post.sticky .page-header h1 a {
+	font-weight: 500;
+}
+#content article .page-header h1 { 
+	margin-top: 0; 
+}
+#content article:first-child .page-header {
+	margin-top: 0;
+}
+.bypostauthor {}
+
+
+
+#footer {
+	text-align:center;
+}
+
+
+
+.clear {
+	clear: both;
+}
+
+
+/* Here some needed widget styles
+ * Most widgets are adapted in the file bootstrap-wp.js - and REALLY easy to modify! ;) */
+.widget { margin-bottom: 2em; }
+.widget_nav_menu ul.sub-menu li, .widget_pages ul.children li { padding-left: 15px; }
+
+/* Hiding the search widget's button in widgets. thats just too old-skool. :) but if you want it back, just delete the next line.
+ * Note: you can change the whole appearance of the search_form() function in our searchform.php */
+.widget_search .search-form input[type="submit"] { display: none; }
+
+
+.widget select {
+	max-width: 100%;
+}
+
+/* Nested comments? They are threaded and nested already, you just need to add your own styling to finalize!
+ * For example with some margin, like the line below ;) Delete, modify, change classes in HTML if you desire another style */
+ .comment .children { margin-left: 1.5em; }
+
+
+.admin-bar .navbar-wrapper .navbar-fixed-top {
+	margin-top: 32px;
+}
+
+@media (max-width: 782px) {
+	.admin-bar .navbar-wrapper .navbar-fixed-top {
+		margin-top: 46px !important;
+	}
+}
+
+@media (max-width: 600px) {
+	.admin-bar .navbar-wrapper .navbar-fixed-top {
+		position: absolute;
+	}
+}

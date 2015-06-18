@@ -1,0 +1,545 @@
+// ============================================================================
+// 
+// Helper classes to create custom layouts and styling
+// 
+// ============================================================================
+
+// Layout =====================================================================
+
+#header {
+	margin-top: @navbar-height;
+	margin-bottom: @jumbotron-padding;
+	padding-top: 1px;
+}
+
+#header.masthead, 
+.masthead {
+	background: @navbar-default-border;
+	padding-top:    floor(@jumbotron-padding / 1.5);
+	padding-bottom: floor(@jumbotron-padding / 1.5);
+		
+	&-gradient {
+		#gradient > .vertical(@start-color: lighten(@jumbotron-bg, 10%); @end-color: @jumbotron-bg; @start-percent: 30%; @end-percent: 130%);
+		border-bottom: 1px solid darken(@jumbotron-bg, 2.5%);
+	}
+
+	h1,
+	.h1 { 
+		margin-bottom: 0;
+	}
+
+	&-primary-bg {
+		background: @brand-primary;
+		border-bottom: 0;
+
+		&.masthead-gradient {
+			#gradient > .vertical(@start-color: darken(@brand-primary, 5%); @end-color: @brand-primary;);
+		}
+
+		h1,
+		.h1 { 
+			color: lighten(@brand-primary, 90%);
+		}
+
+		p, .lead { 
+			color: screen(@brand-primary, #aaa);
+
+			a {
+				color:  screen(@brand-primary, #eee);
+			}
+		}
+	}
+
+	&-large {
+		&:extend(.jumbotron);
+		padding-top:    @jumbotron-padding;
+		padding-bottom: @jumbotron-padding;
+
+		h1,
+		.h1 {
+			&:extend(.jumbotron h1);
+		}
+	}
+}
+
+.featurette {
+	padding-top: @jumbotron-padding;
+	padding-bottom: @jumbotron-padding;
+	text-align: center;
+	border-bottom: 1px solid @hr-border;
+
+	// offset for bottom margin on masthead
+	.masthead + #middle > &:first-child,
+	.masthead + & { 
+		margin-top: -@jumbotron-padding; 
+	}
+
+	// remove border for last-child and offset footer margin
+	#middle > &:last-child, 
+	& + #footer {
+		border-bottom: 0;
+		margin-bottom: -@jumbotron-padding; 
+		
+		@media (min-width: @grid-float-breakpoint) {
+			margin-bottom: (-@jumbotron-padding * 1.6);
+		}
+	}
+
+	@media (min-width: @grid-float-breakpoint) {
+		padding-top: (@jumbotron-padding * 1.6);
+		padding-bottom: (@jumbotron-padding * 1.6);
+	}
+}
+
+#footer {
+	&:extend(.navbar-default);
+	margin-top: @jumbotron-padding;
+	padding-top: @jumbotron-padding;
+	padding-bottom: @jumbotron-padding;
+
+	@media (min-width: @grid-float-breakpoint) {
+		margin-top: (@jumbotron-padding * 1.6);
+	}
+}
+
+// Sticky footers =============================================================
+
+.footer-sticky {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 20px 0 10px;
+
+	.footer-sticky-fixed {
+		position: fixed;
+	}
+
+	&.navbar {
+		padding: 0;
+		margin-bottom: 0;
+	}
+}
+
+// Navbar =====================================================================
+
+// Wrapper for header navbar
+.navbar-wrapper {
+
+	.navbar {
+
+		// Large screens only
+		@media (min-width: @grid-float-breakpoint) {
+			margin-top: 20px;
+		}
+
+		&-static-top,
+		&-fixed-top {
+			margin-top: 0;
+		}
+	}
+}
+
+// Sub-menu functionality
+.navbar {
+
+	.dropdown {
+
+		// Sub-menu drop downs (multi-level menus)
+		&-submenu {
+			position: relative;
+
+			> a.dropdown-toggle {
+				padding-right: 20px;
+			}
+
+			> a.dropdown-toggle:after,
+			> a.dropdown-toggle:hover:after {
+				position: absolute;
+				border-color: transparent;
+				border-style: solid;
+				border-width: @caret-width-base 0 @caret-width-base @caret-width-base;
+				border-left-color: @navbar-default-link-color;
+				margin: -(@caret-width-base - 1) 2px 0 0;
+				top: 50%;
+				left: auto;
+				right: (@caret-width-base * 2);
+			}
+
+			> .dropdown-menu {
+					top: 0;
+					left: 100%;
+					border-radius: 0 @navbar-border-radius @navbar-border-radius @navbar-border-radius;
+			}
+
+			&.pull-left {
+				float: none;
+
+				> .dropdown-menu {
+					left: -100%;
+					margin-left: 10px;
+				}
+			}
+		}
+
+	    // Sub-menu indicators
+	    &-toggle {
+
+			// Hide any caret elements because we
+			.caret {
+				display: none;
+			}
+
+			&:after {
+				position: relative;
+				display: block;
+				content: " ";
+				float: right;
+				width: 0;
+				height: 0;
+				border-color: transparent;
+				border-style: solid;
+				border-width: @caret-width-base @caret-width-base 0 @caret-width-base;
+				border-top-color: @navbar-default-link-color;
+				margin: ((@line-height-computed - @caret-width-base) / 2) 0 0 @caret-width-base;
+				left: @caret-width-base;
+			}
+
+			&:hover:after {
+				border-top-color: @navbar-default-link-hover-color;
+			}
+	    }
+	    
+	    // Open drop-down indicator
+		&.open > .dropdown-toggle:after {
+			border-top-color: @navbar-default-link-active-color;
+		}
+
+		/* Show on hover */
+		@media (min-width: @grid-float-breakpoint) {
+			&-submenu:hover,
+			&.show-on-hover:hover {
+
+				> .dropdown-menu {
+					display: block;    
+				}
+			}
+		}
+
+		&-submenu:hover > a:after {
+			border-top-color: transparent;
+			border-left-color: @navbar-default-link-hover-color;
+		}
+
+	}
+
+
+
+	// Inverse menu style 
+	&-inverse {
+
+		.dropdown {
+
+			// Sub-menus drop downs (multi-level menus)
+			&-submenu {
+
+				> a.dropdown-toggle:after,
+				> a.dropdown-toggle:hover:after {
+					border-left-color: @navbar-inverse-link-color;
+				}
+			}
+
+			&-submenu:hover > a:after {
+				border-top-color: transparent;
+				border-left-color: @navbar-inverse-link-hover-color;
+			}
+
+			// Sub-menu indicators
+			&-toggle {
+
+				&:after {
+					position: relative;
+					display: block;
+					content: " ";
+					float: right;
+					width: 0;
+					height: 0;
+					border-color: transparent;
+					border-style: solid;
+					border-width: @caret-width-base @caret-width-base 0 @caret-width-base;
+					border-top-color: @navbar-inverse-link-color;
+					margin: ((@line-height-computed - @caret-width-base) / 2) 0 0 @caret-width-base;
+					left: @caret-width-base;
+				}
+
+				&:hover:after {
+					border-top-color: @navbar-inverse-link-hover-color;
+				}
+			}
+		}
+
+		// Hover style for sub indicators
+		.open > .dropdown-toggle:after {
+			border-top-color: @navbar-inverse-link-active-color;
+		}
+	}
+
+	// Transparent navbars (no background)
+	&.see-through {
+		background: transparent;
+		border-color: transparent;
+	}
+}
+
+// Floating Navbar Headers (overlays content) =================================
+
+.float-navbar {
+
+	#header {
+		margin-top: 0; // no margin offset on floating navbar
+	}
+
+	.navbar-wrapper {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 20;
+
+		&.container,
+		&.container-fluid {
+
+			.navbar > .container {
+				width: auto;
+			}
+
+			// Small screens only
+			@media (max-width: @grid-float-breakpoint-max) {
+
+				// Clear padding of extra container with small screens
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		.navbar {
+
+			// Large screens only
+			@media (min-width: @grid-float-breakpoint) {
+
+				// Large screens see a free floating navbar
+				border-width: 1px;
+				border-style: none;
+				border-radius: @navbar-border-radius;
+
+				&.navbar-static-top,
+				&.navbar-fixed-top {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
+
+// Text and Image Container ===================================================
+
+.container {
+
+	&-text,
+	&-image {
+		width: 100%;
+		height: 100%;
+		display: table;
+
+		@media screen and (min-width: @screen-sm-min) {
+			min-height: 400px;
+		}
+
+		.panel {
+
+			&-image,
+			&-text {
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+// Search Results ===========================================================
+
+.search-result {
+	
+	&, &.hentry {
+		margin-bottom: 2em;
+	}
+
+	& h3:extend(h4) {}
+}
+
+// Error Pages ==============================================================
+
+
+.error {
+
+	&-container {
+		text-align: center;
+	}
+
+	&-404 .page-header {
+		border-bottom: 0;
+
+		.page-title {
+			font-size: @font-size-h1;
+		}
+	}
+}
+
+// Login Form ===============================================================
+
+body.login {
+	padding: 5%;
+	background: #eee url('../images/login-background.jpg') no-repeat 50%;
+	background-size: cover;
+}
+
+#login {
+	background: rgba(255,255,255,.8);
+	padding: 30px;
+	text-align: center;
+	.box-shadow(0 0 10px rgba(0,0,0,.5));
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	display: table;
+
+	@media (min-width: @grid-float-breakpoint) {
+		padding: 60px;
+	}
+
+
+	h1 {
+		margin: 0;
+
+		a {
+			display: inline-block;
+			height: 100px;
+			width: 100%;
+			max-width: 480px;
+			margin: 0 auto 25px;
+			background-image: url('../images/login-logo.png');
+			-webkit-background-size: contain;
+			background-size: contain;
+
+			@media (min-width: @grid-float-breakpoint) {
+				height: 200px;
+			}
+		}
+	}
+
+	&form, #lostpasswordform {
+		max-width: 330px;
+		padding: 15px 0;
+		margin: 0 auto;
+		background: transparent;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+
+		p {
+			margin-bottom: 0;
+		}
+
+		label {
+			color: @gray-dark;
+			width: 100%;
+			font-size: 15px;
+		}
+
+		.forgetmenot {
+			margin-bottom: 10px;
+			font-weight: normal;
+			float: none;
+
+			label {
+				line-height: 28px;
+			}
+
+			#rememberme {
+				margin: 0 2px 2px 0;
+
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+
+		input[type="text"], input[type="password"] {
+			height: auto;
+			margin: 2px 6px 16px 0;
+			padding: 6px 16px;
+			font-size: 15px;
+		}
+
+		#user_login {
+			margin-bottom: 5px;
+		}
+
+		#user_pass {
+			margin-bottom: 12px;
+		}
+
+		p.submit {
+			text-align: center;
+
+			input[type="submit"] {
+				float: none;
+				width: 100%;
+				height: auto;
+				.box-shadow(none);
+				.button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
+				.button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+			}
+		}
+	}
+
+	// WordPress login page link styles
+	#nav, #backtoblog {
+
+		a {
+			color: @gray-dark;
+
+			&:hover {
+				color: @gray-darker;
+			}
+		}
+	}
+
+	// WordPress login page messages
+	.message, #login_error {
+		&:extend(.alert);
+		max-width: 450px;
+		margin: 1em auto;
+		font-weight: 400 !important;
+		border-radius: 50px !important;
+
+		a:extend(.alert .alert-link all) {}
+	}
+
+	.message {
+		&:extend(.alert-info);
+	}
+
+	#login_error {
+		&:extend(.alert-danger);
+	}
+
+	// WordPress mobile login class
+	.mobile & { 
+		padding: 20px; 
+
+		h1 a {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+	}
+}
+
