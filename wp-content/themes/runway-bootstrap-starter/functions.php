@@ -139,3 +139,138 @@ function rf_enqueue_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'rf_enqueue_scripts' );
+
+
+/* custom code _ ###################
+ * #################################
+ * */
+$cap = array(
+        'read'         => true,  // true allows this capability
+        'edit_posts'   => false,
+        'delete_posts' => false, // Use false to explicitly deny
+    ); 
+	
+
+$result = add_role('member_zero', __( 'Membership Initial' ), $cap);
+$result = add_role('member_silver', __( 'Membership Silver' ), $cap);
+$result = add_role('member_gold', __( 'Membership Gold' ), $cap);
+$result = add_role('member_black', __( 'Membership  Black' ), $cap);
+
+
+function sc_change_details( $html, $charge_response ) {
+ 
+ 
+ 	if($charge_response->receipt_email){
+ 		
+		//$email = $charge_response->receipt_email;
+		
+		$product = esc_html( $_GET['store_name'] ) ;
+		$email = $charge_response->receipt_email;
+		$amount = $charge_response->amount;
+		
+		$user = get_user_by( 'email', $email );
+		
+		//echo $amount; die;
+		
+		if($amount == 999) $role="member_silver";
+		if($amount == 1000000) $role="member_gold";
+		if($amount == 2050000) $role="member_black";
+		
+		$arg = array( 'ID' => $user->ID, 'role' => $role );
+		
+		$update = wp_update_user( $arg );
+		
+		if($update) echo "";
+		else {
+			echo "Something went wrong please contact us";
+		}
+
+		
+		
+		/*echo "<pre>";
+		print_r($charge_response);
+		echo "</pre>";*/
+		
+		
+ 	}
+ 
+    // This is copied from the original output so that we can just add in our own details
+        
+    $html = '<div class="sc-payment-details-wrap">';
+          
+    $html .= '<p>' . __( 'Congratulations. Your payment went through!', 'sc' ) . '</p>' . "\n";
+          
+    if( ! empty( $charge_response->description ) ) {
+        $html .= '<p>' . __( "Here's what you bought:", 'sc' ) . '</p>';
+        $html .= $charge_response->description . '<br>' . "\n";
+    }
+          
+    if ( isset( $_GET['store_name'] ) && ! empty( $_GET['store_name'] ) ) {
+        $html .= 'From: ' . esc_html( $_GET['store_name'] ) . '<br/>' . "\n";
+    }
+      
+    $html .= '<br><strong>' . __( 'Total Paid: ', 'sc' ) . sc_stripe_to_formatted_amount( $charge_response->amount, $charge_response->currency ) . ' ' . 
+            strtoupper( $charge_response->currency ) . '</strong>' . "\n";
+      
+    $html .= '<p>Your transaction ID is: ' . $charge_response->id . '</p>';
+   
+    //Our own new details
+    // Let's add the last four of the card they used and the expiration date
+    $html .= '<p>Card: ****-****-****-' . $charge_response->source->last4 . '<br>';
+    $html .= 'Expiration: ' . $charge_response->source->exp_month . '/' . $charge_response->source->exp_year . '</p>';
+      
+    // We can show the Address provided - this requires shipping="true" in our shortcode
+    if( ! empty( $charge_response->source->address_line1 ) ) {
+        $html .= '<p>Address Line 1: ' . $charge_response->source->address_line1 . '</p>';
+    }
+      
+    if( ! empty( $charge_response->source->address_line2 ) ) {
+        $html .= '<p>Address Line 2: ' . $charge_response->source->address_line2 . '</p>';
+    }
+      
+    if( ! empty( $charge_response->source->address_city ) ) {
+        $html .= '<p>Address City: ' . $charge_response->source->address_city . '</p>';
+    }
+      
+    if( ! empty( $charge_response->source->address_state ) ) {
+        $html .= '<p>Address State: ' . $charge_response->source->address_state . '</p>';
+    }
+      
+    if( ! empty( $charge_response->source->address_zip ) ) {
+        $html .= '<p>Address Zip: ' . $charge_response->source->address_zip . '</p>';
+    }
+      
+    // Finally we can add the output of a custom field
+    // For our example shortcode: <div class="sc-form-group"><label for=""phone_number"">"Phone</label><input type="text" value="" class="sc-form-control sc-cf-text" id=""phone_number"" name="sc_form_field["phone_number"]" placeholder=""></div>
+    if( ! empty( $charge_response->metadata->phone_number ) ) {
+        $html .= '<p>Phone Number: ' . $charge_response->metadata->phone_number . '</p>';
+    }
+      
+    $html .= '</div>';
+      
+    return $html;
+      
+}
+add_filter( 'sc_payment_details', 'sc_change_details', 20, 2 );
+
+
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'legs_products',
+    array(
+      'labels' => array(
+        'name' => __( 'Empty Legs' ),
+        'singular_name' => __( 'Empty Leg' )
+      ),
+      'menu_position' => 4,
+      'supports' => array('title','editor','revisions','page-attributes', 'thumbnail'),
+      'public' => true,
+      'hierarchical' => false,
+      '_builtin' => false,
+      'capability_type' => 'post',
+      'rewrite' => array('slug' => 'product','with_front' => FALSE),
+	   'has_archive' => true
+    )
+  );
+}

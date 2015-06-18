@@ -166,6 +166,12 @@ article.post.sticky .page-header h1 a {
 	max-width: 100%;
 }
 
+#middle{padding-top:20px;}
+.emtpy_legs h2{font-size:18px; text-align:center;}
+
+.leg_item{margin-bottom: 10px; }
+
+dl{display:inline-block;}
 /* Nested comments? They are threaded and nested already, you just need to add your own styling to finalize!
  * For example with some margin, like the line below ;) Delete, modify, change classes in HTML if you desire another style */
  .comment .children { margin-left: 1.5em; }
