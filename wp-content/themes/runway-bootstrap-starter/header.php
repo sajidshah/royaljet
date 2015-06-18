@@ -15,6 +15,7 @@
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<?php wp_head(); ?>
 </head>
 
@@ -50,6 +51,16 @@
 					echo 'Please make sure the Bootstrap Navigation extension is active. Go to "Runway > Extensions" to activate.';
 				}
 			?>
+			
+			<ul class="social-list">
+				<li><a class="fa fa-google-plus" href="https://plus.google.com/108786843512487721458/videos?hl=en" target="_blank"></a></li>
+				<li><a class="fa fa-twitter" href="https://twitter.com/royaljets" target="_blank"></a></li>
+				<li><a class="fa fa-facebook" href="https://www.facebook.com/Royaljetsfans?fref=ts" target="_blank"></a></li>
+				<li><a class="fa fa-pinterest" href="https://www.pinterest.com/royaljets/" target="_blank"></a></li>
+				<li><a class="fa fa-linkedin" href="https://www.linkedin.com/company/royal-jets-inc-" target="_blank"></a></li>
+				<li><a class="fa fa-instagram" href="https://instagram.com/royaljets/" target="_blank"></a></li>
+			</ul>
+			
 			</nav>
           </div>
           

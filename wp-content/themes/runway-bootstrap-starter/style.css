@@ -186,7 +186,9 @@ article.post.sticky .page-header h1 a {
 	}
 }
 
-.navbar{margin:0;}
+.navbar-wrapper .navbar{margin:0; background:#fff;}
+.navbar-wrapper .navbar{text-transform: capitalize;}
 @media (min-width: 768px){
-.navbar-wrapper .navbar{margin-top:0;}
+	.navbar-wrapper .navbar{margin-top:0;}
+	
 }
