@@ -68,6 +68,4 @@ get_header(); ?>
 	<div class="nav-previous alignleft"><?php next_posts_link( 'Previous' ); ?></div>
 	<div class="nav-next alignright"><?php previous_posts_link( 'Next' ); ?></div>
 </div>
-
-
 <?php get_footer(); ?>
