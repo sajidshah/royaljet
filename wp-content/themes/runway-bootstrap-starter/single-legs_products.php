@@ -16,7 +16,7 @@ if(!$black && !$silver && !$gold && !$admin) return_404();
 get_header(); ?>
 	<div class="row">
 		<div id="content" class="col-sm-12 col-md-8">
-			<a href="<?php echo site_url('product'); ?>"><< Show All</a>
+			<a href="<?php echo site_url('product'); ?>"><< Show All</a><br>
 		<?php 
 
 		while ( have_posts() ) : the_post(); ?>
