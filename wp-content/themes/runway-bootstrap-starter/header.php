@@ -111,7 +111,7 @@
 						<?php endif; ?>
 						
 						<?php if($black): ?>
-							<li><a href="#">Plan a trip</a></li>
+							<li><a href="<?php echo site_url('plan-trip');?>">Plan a trip</a></li>
 						<?php endif; ?>	
 						
 						<li><a href="#">Logout</a></li>
