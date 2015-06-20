@@ -337,7 +337,12 @@ dl{display:inline-block;}
 .menu-legs{margin: -20px 0 20px 0;}
 .menu-legs li a{padding: 10px 15px; margin: 0;}
 
+@media (min-width: 768px){
+	.emtpy_legs .leg_item:nth-child(4n+1) {
+	  clear: both;
+	}
 
+}
 
 
 @media (max-width: 782px) {
