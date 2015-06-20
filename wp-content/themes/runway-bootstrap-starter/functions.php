@@ -328,3 +328,25 @@ function pr($data, $ret=false){
 	else die;
 }
 
+//new post status
+add_action('admin_footer-post.php', 'jc_append_post_status_list');
+function jc_append_post_status_list(){
+     global $post;
+     $complete = '';
+     $label = '';
+     if($post->post_type == 'post'){
+          if($post->post_status == 'archive'){
+               $complete = ' selected="selected"';
+               $label = '<span id="post-status-display"> Archived</span>';
+          }
+          echo '
+          <script>
+          jQuery(document).ready(function($){
+               $("select#post_status").append("<option value="archive" '.$complete.'>Archive</option>");
+               $(".misc-pub-section label").append("'.$label.'");
+          });
+          </script>
+          ';
+     }
+}
+

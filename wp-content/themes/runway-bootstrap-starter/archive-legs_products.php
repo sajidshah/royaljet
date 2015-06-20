@@ -22,34 +22,47 @@ get_header(); ?>
 	    
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	    	<ul class="nav navbar-nav">
-				<li><a href="">Show All</a></li>
-				<li><a href="">Empty Legs</a></li>
-				<li><a href="">Recent First</a></li>
-				<li><a href="">Owners Top Picks</a></li>
+				<li><a href="<?php echo site_url('product'); ?>">Recently Added</a></li>
+				<li><a href="<?php echo site_url('product/?top=1'); ?>">Owners Top Picks</a></li>
 			</ul>
 	      
 	    </div>
 	</div>
 </div>
 <div class="row emtpy_legs">
-	<?php 			
-		$args = array( 'post_type' => 'legs_products', 'posts_per_page' => 10 );
-		$loop = new WP_Query( $args );
-		while ( $loop->have_posts() ) : $loop->the_post();
+	<?php
+		
+		$top = isset($_GET['top']) ? $_GET['top'] : false;
+		
+		if($top){
+			$args = array( 'post_type' => 'legs_products', 
+		
+				'meta_query' => array(
+			        array(
+			            'key' => 'owners_top_pick', // name of custom field
+			            'value' => '"Owner Top Choice"', // matches exaclty "red", not just red. This prevents a match for "acquired"
+			            'compare' => 'LIKE'
+			        )
+			    )
+				
+			);
+			query_posts( $args );
+		
+		}
+		
+		while ( have_posts() ) : the_post();
 		  
 		  get_template_part( 'content', 'jetlist' );
 		
 		endwhile;
 	?>
-
-	<?php while ( have_posts() ) : the_post(); ?>
-
-		
-
-	<?php endwhile; // end of the loop. ?>
+	
 </div>
 
-
+<div class="pagination">
+	<div class="nav-previous alignleft"><?php next_posts_link( 'Previous' ); ?></div>
+	<div class="nav-next alignright"><?php previous_posts_link( 'Next' ); ?></div>
+</div>
 
 
 <?php get_footer(); ?>
