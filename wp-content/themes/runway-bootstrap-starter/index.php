@@ -68,7 +68,32 @@ get_header(); ?>
 			</div>
 		</div>
 	</section>
-	
+	<section  id="membership">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="text"><h2 style="text-align: center;"><strong>Black</strong></h2>
+					<img class=" size-full wp-image-100 aligncenter" src="http://localhost/projects/royaljet/wp-content/uploads/2015/06/black.png" alt="black" width="174" height="111" />The membership fees can be used for payment for flight services Minimum spend $20,000. The Black Royalty Card offers you the best features of a jet card and traditional charter membership in one simple package. It is also the most logical alternative to fractional ownership
+					when traveling. Members are assured of guaranteed pricing and availability for the aircraft size they want, when and where you need it
+				</div>
+				<p class="text-center"><a class="btn btn-success btn-lg" href="<?php echo site_url('membership'); ?>">More Details</a></p>
+			</div>
+			<div class="col-sm-4">
+				<div class="text">
+					<h2 style="text-align: center;"><span style="color: #ffcc99;"><strong>Gold</strong></span></h2>
+					<img class=" size-full wp-image-101 aligncenter" src="http://localhost/projects/royaljet/wp-content/uploads/2015/06/gold.png" alt="gold" width="174" height="111" />The membership fees can be used for payment for flight services Minimum Spend: $10,000. The Gold Royalty Card offers you the best features of a jet card and traditional charter membership in one simple package. It is also the most logical alternative to fractional ownership
+					when traveling. Members are assured of guaranteed pricing and availability for the aircraft size they want, when and where you need it.
+				</div>
+				<p class="text-center"><a class="btn btn-success btn-lg" href="<?php echo site_url('membership'); ?>">More Details</a></p>
+			</div>
+			<div class="col-sm-4">
+				<div class="text">
+					<h2 style="text-align: center;"><span style="color: #999999;"><strong>Silver</strong></span></h2>
+					<img class=" size-full wp-image-102 aligncenter" src="http://localhost/projects/royaljet/wp-content/uploads/2015/06/silver.png" alt="silver" width="174" height="112" />This level is $9.99 per month. A subscriptions based membership to provide our members a monthly list of last minute deals starting at $500. Never pay broker fees or a middle man ever again.
+				</div>
+				<p class="text-center"><a class="btn btn-success btn-lg" href="<?php echo site_url('membership'); ?>">More Details</a></p>
+			</div>
+		</div>
+	</section>
 	<section id="charities">
 		<div class="row pad">
 			<div class="col-sm-10 col-sm-offset-1">

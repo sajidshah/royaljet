@@ -337,13 +337,16 @@ dl{display:inline-block;}
 .menu-legs{margin: -20px 0 20px 0;}
 .menu-legs li a{padding: 10px 15px; margin: 0;}
 
-@media (max-width: 768px){
-	.emtpy_legs .leg_item:nth-child(3n+1) {
+@media (min-width: 768px){
+	.emtpy_legs .leg_item:nth-child(4n+1) {
 	  clear: both;
 	}
+	section#membership .text{min-height : 348px;}
 
 }
 
+section#membership{margin-bottom:25px; border-top:solid 1px #eee;}
+section#membership .btn{margin: 10px 0;}
 
 @media (max-width: 782px) {
 	.admin-bar .navbar-wrapper .navbar-fixed-top {
