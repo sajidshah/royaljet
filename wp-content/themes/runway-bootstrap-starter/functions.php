@@ -263,6 +263,7 @@ function sc_change_details( $html, $charge_response ) {
 		$data['customer_email'] = $charge_response->receipt_email;
 		$data['full_name'] = $charge_response->metadata->full_name;
 		$data['dob'] = $charge_response->metadata->dateofbirth;
+		$data['passport'] = $charge_response->metadata->weight;
 		$data['passport'] = $charge_response->metadata->passport_no;
 		$data['tran_id'] = $charge_response->id;
 		$data['prod'] = esc_html( $_GET['store_name'] );
@@ -290,6 +291,7 @@ function sendProductMail($data){
 	$body .= 'We have received your following booking <br>
 	 
 			  Plan: '.$data['prod'].'<br>
+			  Weight: '.$data['weight'].'<br>
 			  Amount: $'.($data['amount']/100).'<br>
 			  
 			  <br><br>
