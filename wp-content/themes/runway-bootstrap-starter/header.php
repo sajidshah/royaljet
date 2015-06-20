@@ -102,19 +102,20 @@
 						$silver = (in_array('member_silver', $user->roles)) ? true : false;
 						$gold = (in_array('member_gold', $user->roles)) ? true : false;
 						$black = (in_array('member_black', $user->roles)) ? true : false;
+						$admin = (in_array('administrator', $user->roles)) ? true : false;
 						
 						if($initial): ?>
 							<li><a href="<?php echo site_url('membership'); ?>">Upgrade Membership</a></li>
 						<?php endif; ?>
-						<?php if($gold || $silver || $black): ?>
+						<?php if($gold || $silver || $black || $admin ): ?>
 							<li><a href="<?php echo site_url('product'); ?>">Book Empty Legs</a></li>
 						<?php endif; ?>
 						
-						<?php if($black): ?>
+						<?php if($black || $admin ): ?>
 							<li><a href="<?php echo site_url('plan-trip');?>">Plan a trip</a></li>
 						<?php endif; ?>	
 						
-						<li><a href="#">Logout</a></li>
+						<li><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
 					<?php endif; ?>
 				</ul>
 				

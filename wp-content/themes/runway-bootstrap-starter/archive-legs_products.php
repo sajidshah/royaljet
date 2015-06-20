@@ -10,9 +10,9 @@
 $user = new WP_User( $user_ID );
 $silver = (in_array('member_silver', $user->roles)) ? true : false;
 $gold = (in_array('member_gold', $user->roles)) ? true : false;
-$black = (in_array('member_black', $user->roles)) ? true : false;
+$admin = (in_array('administrator', $user->roles)) ? true : false;
 
-if(!$black && !$silver && !$gold) return_404();						
+if(!$black && !$silver && !$gold && !$admin) return_404();
 get_header(); ?>
 <div class="nav navbar-default menu-legs">
 	<div class="container-fluid">

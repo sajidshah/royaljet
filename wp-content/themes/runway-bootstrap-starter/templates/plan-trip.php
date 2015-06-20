@@ -5,8 +5,9 @@ Template Name: Plan Trip
 
 $user = new WP_User( $user_ID );
 $black = (in_array('member_black', $user->roles)) ? true : false;
+$admin = (in_array('administrator', $user->roles)) ? true : false;
 
-if(!$black) return_404();						
+if(!$black && !$admin) return_404();						
  
   get_header(); ?>
 
