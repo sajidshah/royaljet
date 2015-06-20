@@ -171,21 +171,32 @@ function sc_change_details( $html, $charge_response ) {
 		$user = get_user_by( 'email', $email );
 		
 		//echo $amount; die;
-		
-		if($amount == 999) $role="member_silver";
-		if($amount == 1000000) $role="member_gold";
-		if($amount == 2050000) $role="member_black";
-		
-		$arg = array( 'ID' => $user->ID, 'role' => $role );
-		
-		$update = wp_update_user( $arg );
-		
-		if($update) echo "";
-		else {
-			echo "Something went wrong please contact us";
+		$membership=false;
+		if($amount == 999){
+			$role="member_silver";
+			$membership=true;
+		} 
+		if($amount == 1000000) {
+			$role="member_gold";
+			$membership=true;
 		}
-
+		if($amount == 2050000) {
+			$role="member_black";
+			$membership=true;
+		}
 		
+		if($membership){
+			
+			$arg = array( 'ID' => $user->ID, 'role' => $role );
+		
+			$update = wp_update_user( $arg );
+			
+			if($update) echo "Transaction successful, you have unlocked your membership features";
+			else {
+				echo "Something went wrong please contact us";
+			}
+			
+		}
 		
 		/*echo "<pre>";
 		print_r($charge_response);
@@ -247,13 +258,47 @@ function sc_change_details( $html, $charge_response ) {
     }
       
     $html .= '</div>';
-      
-    return $html;
+     
+	if($charge_response->metadata->full_name && $charge_response->metadata->dateofbirth){
+		$data['customer_email'] = $charge_response->receipt_email;
+		$data['full_name'] = $charge_response->metadata->full_name;
+		$data['dob'] = $charge_response->metadata->dateofbirth;
+		$data['passport'] = $charge_response->metadata->passport_no;
+		$data['tran_id'] = $charge_response->id;
+		$data['prod'] = esc_html( $_GET['store_name'] );
+		$data['amount'] = $charge_response->amount;
+		$data['paid'] = $charge_response->paid;
+		$data['currency'] = $charge_response->currency;
+		//pr($charge_response, true);
+		sendProductMail($data);
+	}
+		
+		
+		
+	echo $html;
       
 }
 add_filter( 'sc_payment_details', 'sc_change_details', 20, 2 );
 
-
+function sendProductMail($data){
+	
+	
+	$to = $data['customer_email'];
+	$subject = 'Order - '.$data['prod'];
+	
+	$body = 'Dear '.$data['full_name'].',<br>';
+	$body .= 'We have received your following booking <br>
+	 
+			  Plan: '.$data['prod'].'<br>
+			  Amount: $'.($data['amount']/100).'<br>
+			  
+			  <br><br>
+			  * By placing this order you agreed with our companies <a href="http://royaljets.com/royal-jets-empty-leg-terms-and-conditions/">Terms and Conditions</a>
+			';
+	
+	$headers = array('Content-Type: text/html; charset=UTF-8');
+	wp_mail( $to, $subject, $body, $headers );
+}
 
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
@@ -274,3 +319,12 @@ function create_post_type() {
     )
   );
 }
+function pr($data, $ret=false){
+	echo "<pre>";
+		print_r($data);
+	echo "</pre>";
+	
+	if($ret) return true;
+	else die;
+}
+

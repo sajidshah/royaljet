@@ -9,7 +9,6 @@
 
 
 get_header(); ?>
-
 <div class="row emtpy_legs">
 	<?php 			
 		$args = array( 'post_type' => 'legs_products', 'posts_per_page' => 10 );

@@ -21,7 +21,7 @@
 		
 		<?php $amount = get_field( "fee_per_booking" )*100;?>
 		
-		<?php echo do_shortcode('[stripe id="'.$post->ID.'" name="'.get_the_title().'" amount="'.$amount.'" prefill_email="true"][/stripe]'); ?>
+		<br><br><a href="<?php echo get_permalink(); ?>" class="btn btn-success center-block">Details</a>
 		
 	</div><!-- .entry-content -->
 

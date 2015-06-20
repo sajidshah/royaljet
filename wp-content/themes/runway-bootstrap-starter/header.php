@@ -98,16 +98,23 @@
 					<?php else: 
 						
 						$user = new WP_User( $user_ID );
-						$initial = (in_array('member_zero', $user->roles)) ? true : fale;
+						$initial = (in_array('member_zero', $user->roles)) ? true : false;
+						$silver = (in_array('member_silver', $user->roles)) ? true : false;
+						$gold = (in_array('member_gold', $user->roles)) ? true : false;
+						$black = (in_array('member_black', $user->roles)) ? true : false;
 						
-						if($initial):
-					?>
-							<li><a href="#">Upgrade Membership</a></li>
-					<?php else: ?>
-							<li><a href="#">Empty Legs</a></li>
-							<li><a href="#">Profile</a></li>
-							<li><a href="#">Account</a></li>
+						if($initial): ?>
+							<li><a href="<?php echo site_url('membership'); ?>">Upgrade Membership</a></li>
+						<?php endif; ?>
+						<?php if($gold || $silver || $black): ?>
+							<li><a href="<?php echo site_url('product'); ?>">Book Empty Legs</a></li>
+						<?php endif; ?>
+						
+						<?php if($black): ?>
+							<li><a href="#">Plan a trip</a></li>
 						<?php endif; ?>	
+						
+						<li><a href="#">Logout</a></li>
 					<?php endif; ?>
 				</ul>
 				

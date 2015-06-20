@@ -207,28 +207,6 @@ dl{display:inline-block;}
   text-transform: uppercase;
 }
 
-#middle h2 {
-  text-transform: uppercase;
-  font-weight: 900;
-  font-family: "Lato", sans-serif;
-}
-
-#middle h2 {
-  font-size: 110px;
-  line-height: 132px;
-}
-@media (max-width: 1399px) {
- #middle h2 {
-    font-size: 80px;
-    line-height: 100px;
-  }
-}
-@media (max-width: 979px) {
-  #middle h2 {
-    font-size: 48px;
-    line-height: 70px;
-  }
-}
 
 #middle h3 {
   font-size: 60px;
@@ -356,7 +334,8 @@ dl{display:inline-block;}
 	background: none repeat scroll 0 0 #e1eade;
 }
 
-
+.menu-legs{margin: -20px 0 20px 0;}
+.menu-legs li a{padding: 10px 15px; margin: 0;}
 
 
 

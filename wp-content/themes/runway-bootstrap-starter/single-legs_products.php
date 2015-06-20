@@ -47,7 +47,7 @@ get_header(); ?>
 		
 		<?php $amount = get_field( "fee_per_booking" )*100;?>
 		
-		<?php echo do_shortcode('[stripe id="'.$post->ID.'" name="'.get_the_title().'" amount="'.$amount.'" prefill_email="true"][/stripe]'); ?>
+		<?php echo do_shortcode('[stripe id="booking'.$post->ID.'" name="'.get_the_title().'" amount="'.$amount.'" prefill_email="true"][stripe_text label="Full Name:" id="full_name" required="true"][stripe_date label="Date of Birth:" id="dateofbirth" required="true"][stripe_text label="Passport #:" id="passport_no" required="false"][stripe_checkbox label="Agree to Terms and Conditions?" id="agree_terms" required="true"][/stripe]'); ?>
 		
 		<?php 
 		$images = get_field('aircraft_image');
@@ -63,6 +63,7 @@ get_header(); ?>
 		        <?php endforeach; ?>
 		    </div>
 		<?php endif; ?>
+			<?php echo do_shortcode('[wpfai_social]'); ?>
 
 		</div><!-- /.sidebar -->
 	</div><!-- /.row -->
