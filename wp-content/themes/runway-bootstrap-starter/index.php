@@ -48,7 +48,7 @@ get_header(); ?>
 						</p>
 					</div>
 					<div class="col-sm-6">
-						<img class="alignright size-full wp-image-147" src="http://www.royaljets.com/template/wp-content/uploads/2015/04/img1.png" alt="img1" width="658" height="331" />
+						<img src="http://www.royaljets.com/template/wp-content/uploads/2015/04/img1.png" alt="img1" width="658" height="331" />
 					</div>
 				</div>
 				<div class="row">	
@@ -62,7 +62,7 @@ get_header(); ?>
 						</p>
 					</div>
 					<div class="col-sm-6">
-						<img class="alignright size-full wp-image-148" src="http://www.royaljets.com/template/wp-content/uploads/2015/04/img2.jpg" alt="img2" width="658" height="332" />
+						<img src="http://www.royaljets.com/template/wp-content/uploads/2015/04/img2.jpg" alt="img2" width="658" height="332" />
 					</div>
 				</div>
 			</div>
@@ -258,24 +258,10 @@ get_header(); ?>
 		
 		</div>
 	</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
 
 
 <?php get_footer(); ?>
+

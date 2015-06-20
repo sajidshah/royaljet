@@ -304,6 +304,7 @@ article.post.sticky .page-header h1 a {
 .quote{
 	font-size: 12px;
 	line-height: 18px;
+	border: none;
 }
 
 .quote-back{
