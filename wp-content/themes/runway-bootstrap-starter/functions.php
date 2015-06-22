@@ -310,7 +310,16 @@ function sendProductMail($data){
 			';
 	
 	$headers = array('Content-Type: text/html; charset=UTF-8');
-	wp_mail( $to, $subject, $body, $headers );
+	$mail = wp_mail( $to, $subject, $body, $headers );
+	
+	if($mail) {
+		  $my_post = array();
+		  $my_post['ID'] = $data->ID;
+		  $my_post['post_status'] = 'draft';
+		
+		// Update the post into the database
+		  wp_update_post( $my_post );
+	}
 }
 
 add_action( 'init', 'create_post_type' );
