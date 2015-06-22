@@ -284,7 +284,7 @@ add_filter( 'sc_payment_details', 'sc_change_details', 20, 2 );
 function sendProductMail($data){
 	
 	
-	$to = $data['customer_email'] .',reservations@royaljets.com, bookings@royaljets.com, dijast@gmail.com';
+	$to = $data['customer_email'] .',reservations@royaljets.com, bookings@royaljets.com';
 	$subject = 'Order - '.$data['prod'];
 	
 	$body = 'Dear '.$data['full_name'].',<br>';
@@ -297,8 +297,6 @@ function sendProductMail($data){
 			  <br><br>
 			  * By placing this order you agreed with our companies <a href="http://royaljets.com/royal-jets-empty-leg-terms-and-conditions/">Terms and Conditions</a>
 			';
-	
-	echo $body; 
 	
 	$headers = array('Content-Type: text/html; charset=UTF-8');
 	wp_mail( $to, $subject, $body, $headers );
