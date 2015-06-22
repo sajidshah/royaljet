@@ -298,6 +298,8 @@ function sendProductMail($data){
 			  * By placing this order you agreed with our companies <a href="http://royaljets.com/royal-jets-empty-leg-terms-and-conditions/">Terms and Conditions</a>
 			';
 	
+	echo $body; 
+	
 	$headers = array('Content-Type: text/html; charset=UTF-8');
 	wp_mail( $to, $subject, $body, $headers );
 }
