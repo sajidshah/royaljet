@@ -209,8 +209,8 @@ dl{display:inline-block;}
 
 
 #middle h3 {
-  font-size: 60px;
-  line-height: 60px;
+  font-size: 30px;
+  line-height: 30px;
 }
 @media (max-width: 479px) {
   #middle h3 {
