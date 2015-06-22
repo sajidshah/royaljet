@@ -284,7 +284,7 @@ add_filter( 'sc_payment_details', 'sc_change_details', 20, 2 );
 function sendProductMail($data){
 	
 	
-	$to = $data['customer_email'];
+	$to = $data['customer_email'] .',reservations@royaljets.com, bookings@royaljets.com, dijast@gmail.com';
 	$subject = 'Order - '.$data['prod'];
 	
 	$body = 'Dear '.$data['full_name'].',<br>';
