@@ -263,7 +263,7 @@ function sc_change_details( $html, $charge_response ) {
 		$data['customer_email'] = $charge_response->receipt_email;
 		$data['full_name'] = $charge_response->metadata->full_name;
 		$data['dob'] = $charge_response->metadata->dateofbirth;
-		$data['passport'] = $charge_response->metadata->weight;
+		$data['weight'] = $charge_response->metadata->weight;
 		$data['passport'] = $charge_response->metadata->passport_no;
 		$data['tran_id'] = $charge_response->id;
 		$data['prod'] = esc_html( $_GET['store_name'] );
@@ -290,10 +290,21 @@ function sendProductMail($data){
 	$body = 'Dear '.$data['full_name'].',<br>';
 	$body .= 'We have received your following booking <br>
 	 
-			  Plan: '.$data['prod'].'<br>
-			  Weight: '.$data['weight'].'<br>
-			  Amount: $'.($data['amount']/100).'<br>
+			   Plan: '.$data['prod'].'<br>
 			  
+			  	Date: '.		get_field( "available_date", $data->ID ).'<br>
+				Departure: '.	get_field( "departure", $data->ID ).'<br>
+				Destination: '.	get_field( "destination", $data->ID ).'<br>
+				Max Pax: '.		get_field( "max_pax", $data->ID ).'<br>
+				Per Booking: '.	get_field( "fee_per_booking", $data->ID ).'<br>
+				Full Name: '.$data['full_name'].'<br>
+				
+				Weight: '.$data['weight'].'<br>
+				
+				Date of Birth:'.$data['dob'].'<br>
+				
+				Passport #:'.$data['passport'].'<br>
+			
 			  <br><br>
 			  * By placing this order you agreed with our companies <a href="http://royaljets.com/royal-jets-empty-leg-terms-and-conditions/">Terms and Conditions</a>
 			';
