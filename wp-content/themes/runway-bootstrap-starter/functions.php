@@ -318,7 +318,7 @@ function sendProductMail($data){
 		  $my_post['post_status'] = 'draft';
 		
 		// Update the post into the database
-		  wp_update_post( $my_post );
+		  //wp_update_post( $my_post );
 	}
 }
 
