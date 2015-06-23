@@ -51,7 +51,8 @@ get_header(); ?>
 		
 		<?php 
 			$date = get_field( "available_date" );
-			echo $show_date = DateTime::createFromFormat('d/m/Y', $date)->format('m/d/Y');
+			
+			if($date && $date!="") echo $show_date = DateTime::createFromFormat('d/m/Y', $date)->format('m/d/Y');
 		?>
 		
 		<br>
